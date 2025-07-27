@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MountainShares - Own Your Stake in Appalachia's Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #f7fafc;
+            background: #1a2332;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f6d55c;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #f7fafc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f6d55c;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a2332 0%, #2d3748 100%);
+            display: flex;
+            align-items: center;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #f7fafc;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: 24px;
+            color: #f6d55c;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .hero .concept {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #f7fafc;
+            font-weight: 700;
+        }
+
+        .hero .description {
+            font-size: 20px;
+            color: #cbd5e0;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #f6d55c;
+            color: #1a2332;
+        }
+
+        .btn-primary:hover {
+            background: #f4d03f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #f7fafc;
+            border: 2px solid #f7fafc;
+        }
+
+        .btn-secondary:hover {
+            background: #f7fafc;
+            color: #1a2332;
+        }
+
+        /* Problem/Solution Section */
+        .problem-solution {
+            background: #2d3748;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #f7fafc;
+        }
+
+        .split-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .problem, .solution {
+            text-align: center;
+            padding: 40px;
+            border-radius: 12px;
+        }
+
+        .problem {
+            background: rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .solution {
+            background: rgba(56, 161, 105, 0.1);
+            border: 2px solid rgba(56, 161, 105, 0.3);
+        }
+
+        .problem h3, .solution h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .problem p, .solution p {
+            font-size: 18px;
+            color: #cbd5e0;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #1a2332;
+            padding: 100px 0;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .how-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: #2d3748;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .how-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .how-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .how-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #f6d55c;
+            font-weight: 600;
+        }
+
+        .how-card p {
+            font-size: 16px;
+            color: #cbd5e0;
+        }
+
+        /* Community Values */
+        .community-values {
+            background: #2d3748;
+            padding: 100px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #1a2332;
+            border-radius: 12px;
+            border: 1px solid rgba(246, 213, 92, 0.2);
+        }
+
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .value-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #f6d55c;
+            font-weight: 600;
+        }
+
+        .value-card p {
+            font-size: 14px;
+            color: #cbd5e0;
+        }
+
+        /* Legal Transparency */
+        .legal-transparency {
+            background: #1a2332;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legal-content p {
+            font-size: 18px;
+            color: #cbd5e0;
+            margin-bottom: 40px;
+        }
+
+        .legal-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Get Involved */
+        .get-involved {
+            background: #2d3748;
+            padding: 100px 0;
+        }
+
+        .involved-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .involved-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: #1a2332;
+            border-radius: 12px;
+            border: 2px solid rgba(246, 213, 92, 0.2);
+        }
+
+        .involved-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #f6d55c;
+            font-weight: 600;
+        }
+
+        .involved-card p {
+            font-size: 16px;
+            color: #cbd5e0;
+            margin-bottom: 25px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a2332;
+            padding: 80px 0;
+            margin-top: 100px;
+            border-top: 1px solid #2d3748;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-content p {
+            color: #cbd5e0;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #f6d55c;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero .concept {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .split-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .legal-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">MountainShares</div>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#values">Our Values</a></li>
+                <li><a href="#get-involved">Get Involved</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>MountainShares</h1>
+            <div class="tagline">Own Your Stake in Appalachia's Future</div>
+            <div class="concept">1 MountainShare = $1 USD or 1 Volunteer Hour</div>
+            <div class="description">Keep wealth local. Build community. Preserve culture.</div>
+            <div class="cta-buttons">
+                <a href="#get-involved" class="btn btn-primary">Get Started</a>
+                <a href="#how-it-works" class="btn btn-secondary">Learn How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution">
+        <div class="container">
+            <h2 class="section-title">The Challenge We're Solving</h2>
+            <div class="split-content">
+                <div class="problem">
+                    <h3>82% of local spending leaves Appalachian communities</h3>
+                    <p>Money flows out to distant corporations, weakening our local economy and reducing opportunities for our neighbors.</p>
+                </div>
+                <div class="solution">
+                    <h3>MountainShares keeps wealth circulating locally</h3>
+                    <p>Every MountainShare spent stays in our community, strengthening local businesses and creating lasting prosperity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-icon">🤝</div>
+                    <h3>EARN</h3>
+                    <p>Contribute to your community through volunteer work, local services, or supporting neighbors. Every hour of community service earns you MountainShares that recognize your contribution.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon">🏪</div>
+                    <h3>SPEND</h3>
+                    <p>Support neighbors at local shops, restaurants, and service providers. Use your MountainShares like cash at participating businesses throughout Appalachia.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-icon">🗳️</div>
+                    <h3>GOVERN</h3>
+                    <p>Shape the future together through community decision-making. MountainShare holders have a voice in how the system grows and serves our region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Values -->
+    <section class="community-values" id="values">
+        <div class="container">
+            <h2 class="section-title">Our Community Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🏔️</div>
+                    <h3>APPALACHIAN ROOTED</h3>
+                    <p>Built by and for mountain communities, honoring our heritage and strengthening our future.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>COMMUNITY CONTROLLED</h3>
+                    <p>Governed by local residents, not distant corporations or outside interests.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>SUSTAINABLE GROWTH</h3>
+                    <p>Designed for long-term prosperity that preserves our environment and culture.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📜</div>
+                    <h3>CULTURALLY AUTHENTIC</h3>
+                    <p>Respects and strengthens traditional Appalachian values of mutual aid and community support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Transparency -->
+    <section class="legal-transparency">
+        <div class="container">
+            <div class="legal-content">
+                <h2 class="section-title">Built for Trust & Compliance</h2>
+                <p>MountainShares operates as a legal gift certificate system under nonprofit governance. No speculation. No hidden fees. Full community oversight.</p>
+                <div class="legal-buttons">
+                    <a href="#" class="btn btn-secondary">View Governance Documents</a>
+                    <a href="#" class="btn btn-secondary">Read Our Policies</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section class="get-involved" id="get-involved">
+        <div class="container">
+            <h2 class="section-title">Get Involved</h2>
+            <div class="involved-grid">
+                <div class="involved-card">
+                    <h3>RESIDENTS</h3>
+                    <p>Earn your first MountainShare by contributing to community projects and supporting local initiatives.</p>
+                    <a href="#" class="btn btn-primary">Join as Resident</a>
+                </div>
+                <div class="involved-card">
+                    <h3>BUSINESSES</h3>
+                    <p>Accept MountainShares at your business and connect with community-minded customers who want to shop local.</p>
+                    <a href="#" class="btn btn-primary">Business Sign-Up</a>
+                </div>
+                <div class="involved-card">
+                    <h3>PARTNERS</h3>
+                    <p>Support our mission to strengthen Appalachian communities through collaborative partnerships and shared resources.</p>
+                    <a href="#" class="btn btn-primary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="margin-bottom: 20px; font-size: 28px;">MountainShares</div>
+                <p>Building stronger Appalachian communities through local economic cooperation.</p>
+                <p>A project of Harmony for Hope</p>
+                <div class="footer-links">
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Community Guidelines</a>
+                    <a href="#">Newsletter</a>
+                </div>
+                <p style="margin-top: 30px; font-size: 14px; color: #718096;">
+                    © 2025 MountainShares. All rights reserved. | Oak Hill, West Virginia
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(26, 35, 50, 0.98)';
+            } else {
+                header.style.background = 'rgba(26, 35, 50, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
